@@ -28,6 +28,21 @@ struct node	// Structure for node pointing to UR:
 	struct node *next;
 };
 
+void printArguments(int argc, char *argv[])	// Print arguments provided by the user
+{
+	int i,j;
+    printf("----------------------------------------------------------------------------------------------\n");
+    for (i = 1; i < argc; i++)
+    {
+        for(j = 0; *(*(argv + i)+j) != '\0'; j++)
+        {
+            printf("%c", *(*(argv + i)+j) );
+        }
+        printf("\n");
+    }
+    printf("----------------------------------------------------------------------------------------------\n");
+}
+
 void testURL(char *url)	// Test if URL is valid or not
 {
     if(strcmp(url,SEED_URL) != 0 )
