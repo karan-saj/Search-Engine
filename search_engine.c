@@ -28,6 +28,33 @@ struct node	// Structure for node pointing to UR:
 	struct node *next;
 };
 
+void testURL(char *url)	// Test if URL is valid or not
+{
+    if(strcmp(url,SEED_URL) != 0 )
+    {
+        printf("----------------------\n");
+        printf("User Enter Invalid URL\n");
+        printf("----------------------\n");
+    }
+    else
+    {
+        char ch[100] = "wget --spider ";
+        strcat(ch, url);	// ch = "wget --spider https://www.xyz.com"
+        if(!system(ch))	// Test if link is up and running
+        {
+            printf("------------------------------------------\n");
+            printf("%s is a Valid URL\n", url);
+            printf("------------------------------------------\n");
+        }
+        else
+        {
+            printf("---------------------\n");
+            printf("%s is a not Valid URL\n", url);
+            printf("---------------------\n");
+        }
+    }
+}
+
 
 int main(int argc, char* argv[])
 {
