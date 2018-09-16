@@ -97,6 +97,16 @@ int testArguments(int argc, char *argv[])	// Test if arguments provided by user 
     return 1;
 }
 
+void getpage(char *url)	// Get the page from provided url
+{
+    char urlbuffer[1000] = {0};
+    strcat(urlbuffer, "wget -O ");
+//    strcat(urlbuffer, "/home/karan/Desktop/Projects/Crawler/data/temp.txt ");	// direct path
+		strcat(urlbuffer, "./temp.txt ");	// Relative path
+    strcat(urlbuffer, url);
+    system(urlbuffer);
+}
+
 int main(int argc, char* argv[])
 {
 	if(argc!=4)
