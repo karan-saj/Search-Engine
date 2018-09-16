@@ -1,4 +1,20 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <string.h>
+#include<stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#define HASH_SIZE 100
+#define URL_LENGTH 100
+#define SEED_URL "https://www.chitkara.edu.in"
+#define MAX_URL_PER_PAGE 10
+#define INTERVAL_TIME 10
+#define CHECK_MALLOC(s) if ((s) == NULL) { \
+printf("memory allocation failed in %s: line%d", _FILE, __LINE_); \
+perror(":"); \
+exit(-1); \
+}
+#define SET_MEM(start,size) memset(start,0,size)
+
 
 int main(int argc, char* argv[])
 {
