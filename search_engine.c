@@ -107,6 +107,29 @@ void getpage(char *url)	// Get the page from provided url
     system(urlbuffer);
 }
 
+char *getPageContent()	// Get page content from temporary file
+{
+    char c;
+    int i = 0;
+//    FILE *fptr = fopen("/home/karan/Desktop/Projects/Crawler/data/temp.txt","r");	// Direct path
+		FILE *fptr = fopen("./temp.txt","r");	// Relative path
+		while (!feof(fptr))
+    {
+        c = getc(fptr);
+        i++;
+    }
+    char *str = (char *) malloc(sizeof(char) * i);
+    i = 0;
+    rewind(fptr);
+    while (!feof(fptr))
+    {
+        c = getc(fptr);
+        str[i++] = c ;
+    }
+    str[i-1] = '\0';
+    return str;
+}
+
 int main(int argc, char* argv[])
 {
 	if(argc!=4)
