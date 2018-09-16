@@ -21,6 +21,13 @@ struct URL	// Structure for URL
 	int depth;
 };
 
+struct node	// Structure for node pointing to UR:
+{
+	struct URL u;
+	int isVisited;
+	struct node *next;
+};
+
 
 int main(int argc, char* argv[])
 {
