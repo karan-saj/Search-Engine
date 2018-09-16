@@ -130,6 +130,60 @@ char *getPageContent()	// Get page content from temporary file
     return str;
 }
 
+void getURLs(char *html)
+{
+    int temp, i = 0, j = 0, k = 0, flag = 0, index1 = 0, index2 = 0,count=0;
+    int l = strlen(html);
+    char search[] = "href=", *str;
+    str = (char *) malloc(sizeof(char) * l);
+    while (html[i] != '\0')
+    {
+        if( html[i] == search[j] || j > 4 )
+        {
+            if(j >= 0 && j <= 4)
+            {
+                j++;
+                temp = i;
+            }
+            else
+            {
+//							if(html[i] == SEED_URL[i])
+                if(html[i] == '"')
+                {
+                    if(flag == 0)
+                    {
+                        flag = 1;
+                        index1 = i + 1;
+                    }
+                    else
+                    {
+                        flag = 0;
+                        index2 = i;
+                        if(html[index1] =='#' )
+                        {
+                            j = 0;
+                            continue;
+                        }
+                        while(index1 < index2)
+                        {
+                            str[k++] = html[index1++];
+                        }
+                        str[k++] = '\n';
+                        j = 0;
+                    }
+                }
+            }
+        }
+        else
+        {
+            j = 0;
+        }
+        i++;
+    }
+    str[k] = '\0';
+    printf("%s\n", str);
+}
+
 int main(int argc, char* argv[])
 {
 	if(argc!=4)
