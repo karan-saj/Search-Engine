@@ -55,6 +55,17 @@ void testURL(char *url)	// Test if URL is valid or not
     }
 }
 
+void testDepth(char *depth)	// Test if directory path provided is valid or not
+{
+	int n;
+	n=*depth-'\0';
+    if(n<1 )
+    {
+        printf("------------------------\n");
+        printf("User Enter Invalid Depth\n");
+        printf("------------------------\n");
+    }
+}
 
 int main(int argc, char* argv[])
 {
