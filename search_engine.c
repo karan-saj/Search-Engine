@@ -67,6 +67,21 @@ void testDepth(char *depth)	// Test if directory path provided is valid or not
     }
 }
 
+int testArguments(int argc, char *argv[])	// Test if arguments provided by user are valid or not
+{
+    if(argc != 4)
+    {
+        printf("-------------------------------------\n");
+        printf("User Enter Invalid Number Of Arguments\n");
+        printf("-------------------------------------\n");
+        return 0;
+    }
+    testURL(argv[1]);	// Test for URL
+    testDepth(argv[2]);	// Test for depth
+    testDir(argv[3]);	// Test for directory path provided
+    return 1;
+}
+
 int main(int argc, char* argv[])
 {
 	if(argc!=4)
