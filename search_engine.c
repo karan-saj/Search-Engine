@@ -15,6 +15,12 @@ exit(-1); \
 }
 #define SET_MEM(start,size) memset(start,0,size)
 
+struct URL	// Structure for URL
+{
+	char *c;
+	int depth;
+};
+
 
 int main(int argc, char* argv[])
 {
