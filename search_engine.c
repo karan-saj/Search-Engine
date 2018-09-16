@@ -184,11 +184,15 @@ void getURLs(char *html)
     printf("%s\n", str);
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-	if(argc!=4)
-	{
-		printf("\nCMD input is not complete");
-	}
-	return 0;
+		printf("Test_1");
+    printArguments(argc, argv);
+    if(testArguments(argc, argv) == 0)
+        return 0;
+    getpage(argv[1]);
+    char *html = getPageContent();
+    getURLs(html);
+    //printf("%s\n", html);
+    return 0;
 }
